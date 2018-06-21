@@ -1,0 +1,18 @@
+\section{Solution Methods}
+
+For this multi-class classification problem, we consider the following models,
+using one-vs-all method to extend them to solve multi-class problem:
+\begin{itemize}
+  \item Naive Bayes.
+  \item Logistic Regression.
+  \item Support Vector Machine.
+  \item Neural Networks.
+\end{itemize}
+
+\textbf{Desired properties}. Since in our system design, we need to train a
+classifier for each target word, the ideal method should have short training
+time, and compact model representation.
+
+\textbf{Performance Measure}. For each target word, we partition the data into
+training set and test set. And evaluate classifiers on the training set using
+0-1 loss.

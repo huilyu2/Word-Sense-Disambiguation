@@ -1,0 +1,72 @@
+\section{Problem Formulation}
+
+We formualte the word sense disambiguation task into a supervised multi-class
+classification problem.
+This problem can be represented as tuple $(X,Y,h)$, where $X$ is the instance
+space, that contains the description of the object on which we are to predict, 
+and $Y$ is the label space, from which each object draws a label,
+and $h$ is the classification function $X \rightarrow Y$, that maps the
+descriptoin of an object in instance space $X$ to label space $Y$.
+
+Each targetted ambiguous word $w$ has it's own label space $Y_w$, and a shared
+instance space $X$ with other ambiguous words.
+Therefore, the solution to a word sense disambiguation is specific to each
+individual ambiguous word.
+For each ambigous word we train a specific classifier $h_w: X
+\rightarrow Y_w$, that maps instance from $X$ to it's own label space $Y_w$.
+
+
+\subsection{Data Preprocessing}
+\label{sec:formulate:preprocess}
+
+We use SemCor Corpus~\cite{semcor} to provide the raw data for human languages.
+SemCor Corpus is a corpus where each word is tagged with a sense provided by
+WordNet~\cite{wordnet}.
+We then generate the dataset for this problem, in the following steps:
+
+\begin{enumerate}
+  \item Tokenization: transform the sentence strings into list of tokens
+    (usually words).
+  \item Part-of-Speech tagging: e.g. ``the/DT bar/NN was/VBD crowded/JJ'', where
+    DT stands for Determiners, NN stands for Noun, etc.
+  \item Lemmatization: e.g. $plays \rightarrow play$, $was \rightarrow be$.
+  \item Feature extraction: select some features to represent the context.
+\end{enumerate}
+
+\Paragraph{Ambiguous word}. 
+Given an English word $w$, and a tagged corpus, we say the $w$ is ambiguous, if
+it is tagged with at least two different WordNet Sense IDs in the corpus.
+
+\Paragraph{Context Representation}
+We use Colocation~\cite{colocation} method to represent the context of a word.
+For a given ambiguous word, we looks at the preceding and succeeding words,
+and their Part-of-Speech tags.
+The size of the moving window can vary, we use two in this project, as suggested
+by previous studies (CITE).
+\begin{equation}
+  [w_{i-2},POS_{i-2},w_{i-1},POS_{i-1},w_{i+1},POS_{i+1},w_{i+1},POS_{i+1}]
+\end{equation}
+
+We use Word2Vec~\cite{mikolov2013distributed} to transform each word (originally
+presented as string) into float-point vectors.
+Word2Vec~\cite{mikolov2013distributed} is a word embedding models that generates
+vector representations for each word in a given Corpus.
+The output vectors encodes the similarity among words in the context of the
+training Corpus.
+We set the vector dimension for each word at 100, as suggested by the documentation of
+Word2Vec.
+
+To generate vector representation for POS tags, we use Word2Vec embedding model
+again, but substitute the words with its POS tag when training the model.
+
+\Paragraph{Construct training set for each target word}.
+Let W be the set of English words that we want to do sense disambiguation. For
+each $w \in W$, we need to extract a training set $X_w$ from the SemCor Corpus
+as follow: \\
+  (1) Draw a set of sentences $S_w$ from SemCor Corpus, where each 
+$s \in S_w$ contains w. \\
+  (2) Convert each sentence $s \in S_w$ to a feature vector x, and the sense
+    label y. The set of all (x,y) pairs is our training set $X_w$.
+
+% \subsection{Performance Measures}. 
+% We use F1 scores to account for the class imbalance effect in the dataset.

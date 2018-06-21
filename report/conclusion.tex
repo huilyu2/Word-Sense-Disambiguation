@@ -1,0 +1,19 @@
+\section{Conclusion}
+
+We solve the word sense disambiguation problem using supervised learning
+methods, 
+We gather training data by generate feature instances and labels from
+hand-tagged Corpus with word meaning defined by WordNet.
+We evaluated multiple multi-class classification medels and algorithms on this
+dataset, the result shows that Logistic Regression is the best all-around
+algorithm to solve this word-sense classification problem, considering 
+training time, model complexity, and the overall performance based on F1-score.
+
+\Paragraph{Neural network underfit issue}. 
+Because the dataset is very small, the simplified neural
+network model remains severely underfit. More data is required to train the
+model in order to improve the performance instead of adding more features into
+the dataset. The network was originally designed for the whole sentence
+processing, so as long as given a sufficient dataset, there is a huge potential
+to give a better result. For future work, each dilation block could be replaced
+by LSTM, which is also proven strong at time series type data processing. 

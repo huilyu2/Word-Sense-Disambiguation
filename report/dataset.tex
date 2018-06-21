@@ -1,0 +1,20 @@
+\section{Dataset}
+We use Semcor~\cite{semcor} to generate our dataset.
+Semcor is a Corpus that consist of a set of tagged sentences.
+The tags provided with each word.
+The tag information we used in this work includes: \\
+(1) Word sense ID in WordNet~\cite{wordnet}, which is used as prediction label.\\
+(2) Part-of-Speech tag. This is used to encode context.\\
+(3) Lemma. This is used to remove the inflections of word form variations in
+different contexts.\\ 
+Specifically, in our work, we use lemma, instead of the word
+itself, as the identifier for word occurrence counting.
+However, in context representation, we use the original word.
+
+Class imbalance is prevalent in ambiguous words.
+Most words have some rare meanings with very few occurrences in the corpus.
+This ends up minority class in the dataset: classes that only appears in a few
+times (typicall less than ten times).
+
+We discuss how we account for the class imbalance issues in our evaluation
+(section~\ref{sec:eval:results}).

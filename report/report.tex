@@ -1,0 +1,224 @@
+\documentclass[twoside,11pt]{article}
+
+%================================ PREAMBLE ==================================
+
+%--------- Packages -----------
+\usepackage{fullpage}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{color}
+\usepackage{url}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage{titlesec}
+%\usepackage{algorithm,algorithmic}
+\usepackage{subcaption}
+
+%---------- Spacing ----------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+
+\setlist[enumerate]{itemsep=0mm}
+\titlespacing*{\section}{0pt}{0.6\baselineskip}{\baselineskip}
+
+%---------Definitions----------
+\newcommand{\half}{{\textstyle{\frac{1}{2}}}}
+\renewcommand{\>}{{\rightarrow}}
+\renewcommand{\hat}{\widehat}
+\renewcommand{\tilde}{\widetilde}
+\newcommand{\grad}{{\nabla}}
+%
+\newcommand{\argmax}{\textup{\textrm{argmax}}}
+\newcommand{\argmin}{\textup{\textrm{argmin}}}
+\newcommand{\argsort}{\textup{\textrm{argsort}}}
+\newcommand{\sign}{\textup{\textrm{sign}}}
+\newcommand{\poly}{\textup{\textrm{poly}}}
+\newcommand{\er}{\textup{\textrm{er}}}
+\newcommand{\zo}{\textup{\textrm{0-1}}}
+\newcommand{\sq}{\textup{\textrm{sq}}}
+%
+\newcommand{\1}{{\mathbf 1}}
+\newcommand{\0}{{\mathbf 0}}
+\newcommand{\I}{{\mathbf I}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\N}{{\mathbb N}}
+\renewcommand{\P}{{\mathbf P}}
+\newcommand{\E}{{\mathbf E}}
+\newcommand{\Var}{{\mathbf{Var}}}
+%
+\renewcommand{\a}{{\mathbf a}}
+\renewcommand{\b}{{\mathbf b}}
+\renewcommand{\c}{{\mathbf c}}
+\renewcommand{\d}{{\mathbf d}}
+\newcommand{\f}{{\mathbf f}}
+\renewcommand{\k}{{\mathbf k}}
+\newcommand{\p}{{\mathbf p}}
+\newcommand{\q}{{\mathbf q}}
+\renewcommand{\u}{{\mathbf u}}
+\newcommand{\w}{{\mathbf w}}
+\newcommand{\x}{{\mathbf x}}
+\newcommand{\y}{{\mathbf y}}
+%
+\newcommand{\A}{{\mathbf A}}
+\newcommand{\bC}{{\mathbf C}}
+\newcommand{\C}{{\mathcal C}}
+\newcommand{\cD}{{\mathcal D}}
+\newcommand{\F}{{\mathcal F}}
+\renewcommand{\H}{{\mathcal H}}
+\newcommand{\K}{{\mathbf K}}
+\renewcommand{\L}{{\mathcal L}}
+\newcommand{\bL}{{\mathbf L}}
+\newcommand{\cN}{{\mathcal N}}
+\newcommand{\W}{{\mathbf W}}
+\newcommand{\X}{{\mathcal X}}
+\newcommand{\bX}{{\mathbf X}}
+\newcommand{\Y}{{\mathcal Y}}
+%
+\newcommand{\bloss}{{\boldsymbol \ell}}
+\newcommand{\blambda}{{\boldsymbol \lambda}}
+\newcommand{\bmu}{{\boldsymbol \mu}}
+\newcommand{\bnu}{{\boldsymbol \nu}}
+\newcommand{\bSigma}{{\boldsymbol \Sigma}}
+\newcommand{\seta}{{\boldsymbol \eta}}
+\newcommand{\bpsi}{{\boldsymbol \psi}}
+\newcommand{\bphi}{{\boldsymbol \phi}}
+\newcommand{\bPhi}{{\boldsymbol \Phi}}
+\newcommand{\balpha}{{\boldsymbol \alpha}}
+\newcommand{\bxi}{{\boldsymbol \xi}}
+
+\newcommand{\etc}{\mbox{etc}\xspace}
+\newcommand{\eg}{\mbox{e.g.,}\xspace}
+\newcommand{\ie}{\mbox{i.e.}\xspace}
+\newcommand{\vs}{\mbox{v.s.}\xspace}
+\newcommand{\Paragraph}[1]{\vspace{.5mm} \noindent \textbf{#1}}
+
+%=============================== END PREAMBLE ===============================
+
+\begin{document}
+
+%================================ COVER PAGE ================================
+
+%*********** Use this for project proposal (comment out in project report) ************
+\emph{\footnotesize{CIS 520 Spring 2018, Project Proposal}}
+
+%*********** Use this for project report (comment out in project proposal) ************
+%\emph{\footnotesize{CIS 520 Spring 2018, Project Report}}
+
+\vspace{12pt}
+
+%Fill in your project title
+\textbf{\Large{Word Sense Disambiguation by Supervised Learning}}
+
+\vspace{1cm}
+
+\textbf{Team Members:}
+
+%Fill in your team details; remove any lines that are not needed
+Haoxian Chen (PennKey: \texttt{hxchen}; Email: \texttt{hxchen@seas.upenn.edu}) \\
+Leshang Chen (PennKey: \texttt{leshangc}; Email: \texttt{leshangc@seas.upenn.edu}) \\
+Hui Lyu (PennKey: \texttt{huilyu}; Email: \texttt{huilyu@seas.upenn.edu}) \\
+Yanci Zhang (PennKey: \texttt{yanci}; Email: \texttt{yanci@seas.upenn.edu})
+
+%---
+
+\vspace{2cm}
+
+%*********** Comment out the following for the proposal; uncomment and fill in all details for the project report ***********
+
+\textbf{Assigned Project Mentor:}
+
+%Fill in assigned TA name
+Anant Maheshwari
+
+\vspace{1cm}
+
+\textbf{Team Member Contributions:}
+
+%Fill in team member contributions
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Team Member & Contributions \\
+\hline
+Haoxian Chen & Preprocess Data \\
+	& Experiment Naive Bayes classifier \\
+\hline
+Leshang Chen & Experiment logistic regression \\
+	& Plot results \\
+\hline
+Hui Lyu & Experiment SVM \\
+	& Preprocess Data \\
+\hline
+Yanci Zhang & Experiment Neural Network \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{12pt}
+
+\textbf{Code Submission:}
+GitHub:
+https://github.com/HaoxianChen/520-project
+
+
+\newpage
+%============================= MAIN DOCUMENT ================================
+
+%*********** Use this to include abstract in project report (comment out in project proposal) ***********
+%\begin{abstract}
+%Abstract for project report goes here.
+%\end{abstract}
+
+
+%*********** Recommended section structure for project proposal below (comment out in project report) ************
+
+\input{abstract}
+\input{introduction}
+\input{relatedwork}
+\input{dataset}
+\input{formulation}
+\input{algorithms}
+\input{results}
+\input{conclusion}
+
+% \input{plan}
+
+% \section*{Acknowledgments}
+
+%*********** Recommended section structure for project report below (comment out in project proposal) ************
+
+%\section{Introduction}
+
+%\section{Related Work}
+
+%Note: Using BibTex makes it easy to include citations to references! For example, here are citations to Bishop's book \cite{Bishop06}, the UCI machine learning repository \cite{DuaKa17}, and a couple of papers \cite{FreundSc96,LeCun+15}.
+
+%\section{Data Set}
+
+%\section{Problem Formulation}
+
+%\section{Algorithms}
+
+%\section{Experimental Design and Results}
+
+%\section{Conclusion and Discussion}
+
+%\section*{Acknowledgments}
+
+
+\newpage
+%============================= BIBLIOGRAPHY ===============================
+
+\bibliographystyle{unsrt}
+\bibliography{bib}
+
+\end{document}
+
+%=========================== END DOCUMENT ==============================
+

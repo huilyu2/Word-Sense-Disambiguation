@@ -1,0 +1,29 @@
+\section{Related Work}
+
+Major approaches to the word sense disambiguation problem can be briefly
+categorized into three types: Knowledge-based, supervised learning, and
+unsupervised learning. 
+
+Knowledge based appraoch.
+Lesk's algorithm~\cite{lesk1986automatic} is a
+dictionary-based approach. It assumes that words appear within the same context
+have related semantics. The alogrithm disambiguate word sense by finding the
+dictionary definition that shares the most common words with the given context
+sentence.
+
+Supervised learning approaches. These approaches typically use a hand-annotated
+Corpus as the training data set. The classifier is concerned on each individual
+word, and the output is one of the definition of the ambiguous word in the
+dictionary. Over the decades, people have proposed different algorithms to solve
+this classification problem: decision-tree~\cite{quinlan1986induction}, 
+Naive Bayers classifier~\cite{ng1997getting}, Neural
+Network~\cite{cottrell1985connectionist}, and SVM~\cite{lee2002empirical}, etc.
+
+Unsupervised approach. Such approaches~\cite{schutze1998automatic} assumes that
+similar senses appear in similar contexts. By clustering occurrance of words
+into clusters using some similarity measures, the sense of a new occurring word
+can be induced by assigning it to the closest cluster.
+
+% \textbf{Context representation.} To feed sentences into our system, we need to
+% encode the context into some data structure. Previous researches have proposed
+% several ways to represent context.

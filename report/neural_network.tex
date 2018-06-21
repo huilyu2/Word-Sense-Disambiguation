@@ -1,0 +1,17 @@
+\Paragraph{Neural Network}
+Since the feature contains the sentence structure, the model is designed to
+process having capability of recognize which word come first and later instead
+up allowing model randomly search the best combination. Causal convolution layer
+\cite{oord2016pixel}, a type of convolution, has been used in this problem to
+maintain this time series like structure. In order to having a larger size of
+reception field, dilation blocks are used, in which each layer extract certain
+amount of feature with sequence information \cite{van2016wavenet}, so that it is
+quite possible to process a much longer sentence without changing the structure
+with additional information. Residual network structure \cite{he2016deep} has
+been used on dilation block to prevent gradient vanishing in deep network. \\ 
+The overall model structure is a forward causal layer to process sentence in a
+forward sequence, followed by two dilation residual blocks. There is a parallel
+structure to process the sentence backward. Two dilation blocks skip connections
+on both sequence are concatenated, then into a fully connected layer and enters
+a Softmax layer to make classification prediction.
+

@@ -1,0 +1,38 @@
+\section{Problem formulation}
+
+This is a supervised multi-class classification problem. For each targetted
+ambiguous word $w$, we train an classifier $h_w: X \rightarrow L$, where X is
+the feature space (context representation), and the label space L is the list of
+word definitions for word w given by WordNet~\cite{wordnet}.
+
+\textbf{Data Preprocessing}.
+
+We plan to use SemCor Corpus~\cite{semcor} as our data set. SemCor Corpus is a
+corpus where each word is tagged with a sense provided by WordNet~\cite{wordnet}.
+
+\begin{enumerate}
+  \item Tokenization: transform the sentense strings into list of tokens
+    (usually words).
+  \item Part-of-Speech tagging: e.g. ``the/DT bar/NN was/VBD crowded/JJ'', where
+    DT stands for Determiners, NN stands for Noun, etc.
+  \item Lemmatization: e.g. $plays \rightarrow play$, $was \rightarrow be$.
+  \item Feature extraction: select some features to represent the context.
+\end{enumerate}
+
+Feature extraction (context representation): 
+(1) Colocation~\cite{colocation}. The preceding and succeeding words and their
+Part-of-Speech tags.  (2) Bag-of-words~\cite{bagofwords}. Ignore positional
+information. Assume that there is a fixed set of vocabulary that represent a
+relevant topic, transform the appearance of those words as a bit vector.
+
+\textbf{Construct training set for each target word}.\\
+Let W be the set of English words that we want to do sense disambiguation. For
+each $w \in W$, we need to extract a training set $X_w$ from the SemCor Corpus
+as follow: 
+\begin{enumerate}
+  \item Draw a set of sentences $S_w$ from SemCor Corpus, where each 
+$s \in S_w$ contains w. 
+  \item Convert each sentence $s \in S_w$ to a feature vector x, and the sense
+    label y. The set of all (x,y) pairs is our training set $X_w$.
+\end{enumerate}
+

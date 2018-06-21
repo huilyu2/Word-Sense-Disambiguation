@@ -1,0 +1,74 @@
+\begin{thebibliography}{10}
+
+\bibitem{lesk1986automatic}
+Michael Lesk.
+\newblock Automatic sense disambiguation using machine readable dictionaries:
+  how to tell a pine cone from an ice cream cone.
+\newblock In {\em Proceedings of the 5th annual international conference on
+  Systems documentation}, pages 24--26. ACM, 1986.
+
+\bibitem{quinlan1986induction}
+J.~Ross Quinlan.
+\newblock Induction of decision trees.
+\newblock {\em Machine learning}, 1(1):81--106, 1986.
+
+\bibitem{ng1997getting}
+Hwee~Tou Ng.
+\newblock Getting serious about word sense disambiguation.
+\newblock 1997.
+
+\bibitem{cottrell1985connectionist}
+Garrison~Weeks Cottrell.
+\newblock A connectionist approach to word sense disambiguation.
+\newblock 1985.
+
+\bibitem{lee2002empirical}
+Yoong~Keok Lee and Hwee~Tou Ng.
+\newblock An empirical evaluation of knowledge sources and learning algorithms
+  for word sense disambiguation.
+\newblock In {\em Proceedings of the ACL-02 conference on Empirical methods in
+  natural language processing-Volume 10}, pages 41--48. Association for
+  Computational Linguistics, 2002.
+
+\bibitem{schutze1998automatic}
+Hinrich Sch{\"u}tze.
+\newblock Automatic word sense discrimination.
+\newblock {\em Computational linguistics}, 24(1):97--123, 1998.
+
+\bibitem{semcor}
+Semcor corpus.
+\newblock \url{https://www.gabormelli.com/RKB/SemCor_Corpus}.
+
+\bibitem{wordnet}
+About wordnet.
+\newblock \url{https://wordnet.princeton.edu/citing-wordnet}.
+
+\bibitem{colocation}
+Colocation.
+\newblock \url{https://en.wikipedia.org/wiki/Collocation}.
+
+\bibitem{mikolov2013distributed}
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg~S Corrado, and Jeff Dean.
+\newblock Distributed representations of words and phrases and their
+  compositionality.
+\newblock In {\em Advances in neural information processing systems}, pages
+  3111--3119, 2013.
+
+\bibitem{oord2016pixel}
+Aaron van~den Oord, Nal Kalchbrenner, and Koray Kavukcuoglu.
+\newblock Pixel recurrent neural networks.
+\newblock {\em arXiv preprint arXiv:1601.06759}, 2016.
+
+\bibitem{van2016wavenet}
+Aaron Van Den~Oord, Sander Dieleman, Heiga Zen, Karen Simonyan, Oriol Vinyals,
+  Alex Graves, Nal Kalchbrenner, Andrew Senior, and Koray Kavukcuoglu.
+\newblock Wavenet: A generative model for raw audio.
+\newblock {\em arXiv preprint arXiv:1609.03499}, 2016.
+
+\bibitem{he2016deep}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 770--778, 2016.
+
+\end{thebibliography}
